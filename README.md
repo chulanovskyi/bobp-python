@@ -101,15 +101,15 @@ person.age = 42
 person.set_age(42)
 ```
 
-#### [2] Indentation
+#### [2] Отступы
 
-Use 4 spaces--never tabs. Enough said.
+Используй 4 пробела. Табы - никогда. Достаточно разговоров.
 
-#### Imports
+#### Импорты
 
-Import entire modules instead of individual symbols within a module. For example, for a top-level module `canteen` that has a file `canteen/sessions.py`,
+Импортируй модули целиком вместо отдельных его атрибутов. К примеру, модуль верхнего уровня `canteen` который содержит файл `canteen/sessions.py`,
 
-**Yes**
+**Да**
 
 ```python
 import canteen
@@ -117,26 +117,26 @@ import canteen.sessions
 from canteen import sessions
 ```
 
-**No**
+**Нет**
 
 ```python
-from canteen import get_user  # Symbol from canteen/__init__.py
-from canteen.sessions import get_session  # Symbol from canteen/sessions.py
+from canteen import get_user  # Атрибут из canteen/__init__.py
+from canteen.sessions import get_session  # Атрибут canteen/sessions.py
 ```
 
-*Exception*: For third-party code where documentation explicitly says to import individual symbols.
+*Исключение*: Сторонние (third-party) модули, в документации которых явно указано импортировать отдельный атрибут. 
 
-*Rationale*: Avoids circular imports. See [here](https://sites.google.com/a/khanacademy.org/forge/for-developers/styleguide/python#TOC-Imports).
+*Rationale*: Предотвращает циклическое импортирование. Смотреть [тут](https://sites.google.com/a/khanacademy.org/forge/for-developers/styleguide/python#TOC-Imports).
 
-Put all imports at the top of the page with three sections, each separated by a blank line, in this order:
+Размещай все импорты вверху страницы в трёх разделах, каждый из который отделён пустой строкой в таком порядке:
 
-1. System imports
-2. Third-party imports
-3. Local source tree imports
+1. Системные модули
+2. Сторонние модули
+3. Локальные (проектные) модули
 
-*Rationale*: Makes it clear where each module is coming from.
+*Rationale*: Сразу видно откуда берётся модуль.
 
-#### Documentation
+#### Документация
 
 Follow [PEP 257][]'s docstring guidelines. [reStructured Text](http://docutils.sourceforge.net/docs/user/rst/quickref.html) and [Sphinx](http://sphinx-doc.org/) can help to enforce these standards.
 
