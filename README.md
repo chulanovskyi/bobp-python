@@ -43,7 +43,7 @@
 - Константы
     - `ВСЕМИ_ЗАГЛАВНЫМИ_БУКВАМИ`
 
-###### General Naming Guidelines 
+###### [1] General Naming Guidelines 
 
 Avoid one-letter variables (esp. `l`, `O`, `I`). 
 
@@ -101,7 +101,7 @@ person.age = 42
 person.set_age(42)
 ```
 
-#### Indentation
+#### [2] Indentation
 
 Use 4 spaces--never tabs. Enough said.
 
@@ -184,7 +184,7 @@ class Person(object):
         self.age = age
 ```
 
-##### On comments
+##### [3] On comments
 
 Use them sparingly. Prefer code readability to writing a lot of comments. Often, small methods are more effective than comments.
 
@@ -252,7 +252,7 @@ class PersonTest(unittest.TestCase):
         self.assertEqual(self.person.dog_years, self.person.age / 7)
 ```
 
-#### Functional Tests
+#### [4] Functional Tests
 
 Functional tests are higher level tests that are closer to how an end-user would interact with your application. They are typically used for web and GUI applications.
 
