@@ -101,15 +101,15 @@ person.age = 42
 person.set_age(42)
 ```
 
-#### [2] Indentation
+#### [2] Отступы
 
-Use 4 spaces--never tabs. Enough said.
+Используй 4 пробела. Табы - никогда. Достаточно разговоров.
 
-#### Imports
+#### Импорты
 
-Import entire modules instead of individual symbols within a module. For example, for a top-level module `canteen` that has a file `canteen/sessions.py`,
+Импортируй модули целиком вместо отдельных его атрибутов. К примеру, модуль верхнего уровня `canteen` который содержит файл `canteen/sessions.py`,
 
-**Yes**
+**Да**
 
 ```python
 import canteen
@@ -117,41 +117,41 @@ import canteen.sessions
 from canteen import sessions
 ```
 
-**No**
+**Нет**
 
 ```python
-from canteen import get_user  # Symbol from canteen/__init__.py
-from canteen.sessions import get_session  # Symbol from canteen/sessions.py
+from canteen import get_user  # Атрибут из canteen/__init__.py
+from canteen.sessions import get_session  # Атрибут canteen/sessions.py
 ```
 
-*Exception*: For third-party code where documentation explicitly says to import individual symbols.
+*Исключение*: Сторонние (third-party) модули, в документации которых явно указано импортировать отдельный атрибут. 
 
-*Rationale*: Avoids circular imports. See [here](https://sites.google.com/a/khanacademy.org/forge/for-developers/styleguide/python#TOC-Imports).
+*Основание*: Предотвращает циклическое импортирование. Смотреть [тут](https://sites.google.com/a/khanacademy.org/forge/for-developers/styleguide/python#TOC-Imports).
 
-Put all imports at the top of the page with three sections, each separated by a blank line, in this order:
+Размещай все импорты вверху страницы в трёх разделах, каждый из который отделён пустой строкой в таком порядке:
 
-1. System imports
-2. Third-party imports
-3. Local source tree imports
+1. Системные модули
+2. Сторонние модули
+3. Локальные (проектные) модули
 
-*Rationale*: Makes it clear where each module is coming from.
+*Основание*: Сразу видно откуда берётся модуль.
 
-#### Documentation
+#### Документация
 
-Follow [PEP 257][]'s docstring guidelines. [reStructured Text](http://docutils.sourceforge.net/docs/user/rst/quickref.html) and [Sphinx](http://sphinx-doc.org/) can help to enforce these standards.
+Следуй рекомендациям [PEP 257][PEP 257] по строкам документации. [reStructured Text](http://docutils.sourceforge.net/docs/user/rst/quickref.html) и [Sphinx](http://sphinx-doc.org/) помогут придерживаться этого стандарта.
 
-Use one-line docstrings for obvious functions.
+Используй однострочное документирование для очевидных функций.
 
 ```python
 """Return the pathname of ``foo``."""
 ```
 
-Multiline docstrings should include
+Многострочное документирование должно состоять из
 
-- Summary line
-- Use case, if appropriate
-- Args
-- Return type and semantics, unless ``None`` is returned
+- Краткое описание
+- Варианты использования, при необходимости.
+- Аргументы
+- Возвращаемый тип и его семантика, за исключением когда возвращается ``None``
 
 ```python
 """Train a model to classify Foos and Bars.
@@ -167,10 +167,10 @@ Usage::
 """
 ```
 
-Notes
+Примечания
 
-- Use action words ("Return") rather than descriptions ("Returns").
-- Document `__init__` methods in the docstring for the class.
+- Используй глаголы ("Return") вместо описательных слов ("Returns").
+- Делай описание `__init__` методов в строках документации классов.
 
 ```python
 class Person(object):
@@ -252,12 +252,12 @@ class PersonTest(unittest.TestCase):
         self.assertEqual(self.person.dog_years, self.person.age / 7)
 ```
 
-#### [4] Functional Tests
+#### [4] Функциональные тесты
 
-Functional tests are higher level tests that are closer to how an end-user would interact with your application. They are typically used for web and GUI applications.
+Функциональные тесты это высокоуровневые тесты которые максимально отображают как конечный пользователь будет взаимодействовать с приложением. Они обычно используются для веб приложений и приложений с графическим интерфейсом.
 
-- Write tests as scenarios. Testcase and test method names should read like a scenario description.
-- Use comments to write out stories, *before writing the test code*.
+- Пиши тесты как сценарий. Тест-кейсы и их методы должны звучать как описание к сценарию.
+- Пиши комментарии как маленькие истории, *до написания кода тестирования*.
 
 ```python
 import unittest
@@ -277,10 +277,10 @@ class TestAUser(unittest.TestCase):
         ...
 ```
 
-Notice how the testcase and test method read together like "Test A User can write a blog post".
+Заметь, как в итоге звучит название тест-кейса и его метода "Test A User can write a blog post".
 
 
-## Inspired by...
+## Навеяно из...
 
 - [PEP 20 (The Zen of Python)][PEP 20]
 - [PEP 8 (Style Guide for Python)][PEP 8]
@@ -289,7 +289,7 @@ Notice how the testcase and test method read together like "Test A User can writ
 - [Python Best Practice Patterns][]
 - [Pythonic Sensibilities][]
 - [The Pragmatic Programmer][]
-- and many other bits and bytes
+- а так же из других байтов и битов...
 
 [Pythonic Sensibilities]: http://www.nilunder.com/blog/2013/08/03/pythonic-sensibilities/
 [Python Best Practice Patterns]: http://youtu.be/GZNUfkVIHAY
