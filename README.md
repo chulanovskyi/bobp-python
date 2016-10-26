@@ -30,7 +30,7 @@
 
 Следуй стандарту [PEP 8][], когда возможно.
 
-#### Naming
+#### Имена
 
 - Переменные, функции, методы, пакеты, модули
     - `маленькие_буквы_с_подчеркиванием_между_словами`
@@ -43,21 +43,21 @@
 - Константы
     - `ВСЕМИ_ЗАГЛАВНЫМИ_БУКВАМИ`
 
-###### [1] General Naming Guidelines 
+###### [1] Основные рекомендации по именованию
 
-Avoid one-letter variables (esp. `l`, `O`, `I`). 
+Избегай имен из одной буквы (особенно `l`, `O`, `I`). 
 
-*Exception*: In very short blocks, when the meaning is clearly visible from the immediate context
+*Исключение*: В очень коротких блоках кода, когда значение явно видно из контекста:
 
-**Fine**
+**Сойдёт**
 ```python
 for e in elements:
     e.mutate()
 ```
 
-Avoid redundant labeling.
+Избегай излишних ярлыков.
 
-**Yes**
+**Да**
 ```python
 import audio
 
@@ -65,7 +65,7 @@ core = audio.Core()
 controller = audio.Controller()
 ```
 
-**No**
+**Нет**
 ```python
 import audio
 
@@ -73,30 +73,30 @@ core = audio.AudioCore()
 controller = audio.AudioController()
 ```
 
-Prefer "reverse notation".
+Используй "обратную запись".
 
-**Yes**
+**Да**
 ```python
 elements = ...
 elements_active = ...
 elements_defunct = ...
 ```
 
-**No**
+**Нет**
 ```python
 elements = ...
 active_elements = ...
 defunct_elements ...
 ```
 
-Avoid getter and setter methods.
+Избегай get-/set- методы.
 
-**Yes**
+**Да**
 ```python
 person.age = 42
 ```
 
-**No**
+**Нет**
 ```python
 person.set_age(42)
 ```
@@ -184,11 +184,11 @@ class Person(object):
         self.age = age
 ```
 
-##### [3] On comments
+##### [3] Про комментарии
 
-Use them sparingly. Prefer code readability to writing a lot of comments. Often, small methods are more effective than comments.
+Используй их в умеренном количестве. Читаемость самого кода важнее чем множество комментарий к нему. Зачастую, короткие методы эффективнее чем комментарии.
 
-*No*
+*Нет*
 
 ```python
 # If the sign is a stop sign
@@ -196,7 +196,7 @@ if sign.color == 'red' and sign.sides == 8:
     stop()
 ```
 
-*Yes*
+*Да*
 
 ```python
 def is_stop_sign(sign):
@@ -206,13 +206,12 @@ if is_stop_sign(sign):
     stop()
 ```
 
-When you do write comments, remember: "Strunk and White apply." - [PEP 8][]
+Когда всё таки пишешь комментарии, помни про "Strunk and White apply." - [PEP 8][]
 
-#### Line lengths
+#### Длина строки
 
-Don't stress over it. 80-100 characters is fine.
-
-Use parentheses for line continuations.
+Не переживай по этому поводу. 80-100 символов будет просто супер.
+Используй круглые скобки для продолжения строки.
 
 ```python
 wiki = (
@@ -223,22 +222,23 @@ wiki = (
 )
 ```
 
-### Testing
+### Тесты
 
+Стремись к 100% охватываемости кода, но не будь одержим этим показателем.
 Strive for 100% code coverage, but don't get obsess over the coverage score.
 
-#### General testing guidelines
+#### Основные рекомендации к тестам
 
-- Use long, descriptive names. This often obviates the need for doctrings in test methods.
-- Tests should be isolated. Don't interact with a real database or network. Use a separate test database that gets torn down or use mock objects.
-- Prefer [factories](https://github.com/rbarrois/factory_boy) to fixtures.
-- Never let incomplete tests pass, else you run the risk of forgetting about them. Instead, add a placeholder like `assert False, "TODO: finish me"`.
+- Используй длинные описательные имена. Зачастую это исключает необходимость писать строки документации в методах.
+- Тесты должны быть изолированые. Не взаимодействуй с реальной базой данных или с сетью. Используй для этого отдельную базу данных которую можно удалить либо фиктивный (mock) объект.
+- Используй лучше [фабрики](https://github.com/rbarrois/factory_boy) чем фикстуры.
+- Никогда не давай незаконченным тестам успешно завершиться, иначе ты рискуешь просто забыть про них. Вместо этого, добавь заполнитель типа `assert False, "TODO: finish me"`.
 
-#### Unit Tests
+#### Юнит тесты
 
-- Focus on one tiny bit of functionality.
-- Should be fast, but a slow test is better than no test.
-- It often makes sense to have one testcase class for a single class or model.
+- Сфокусированы на небольшом кусочке функциональности.
+- Должны быть быстрые. Однако, медленные тесты лучше чем вообще без них.
+- Имеет смысл делать один класс тест-кейса для одного класса модели.
 
 ```python
 import unittest
